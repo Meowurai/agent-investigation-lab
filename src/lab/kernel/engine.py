@@ -5,6 +5,7 @@ from random import Random
 
 from lab.kernel.clock import Clock
 from lab.kernel.context import Context
+from lab.kernel.state import State
 
 @dataclass
 class RunConfig:
@@ -25,6 +26,8 @@ class Engine:
             clock=clock,
             rng=Random(config.seed),
         )
+
+        state = State()
 
         while not clock.is_finished():
             print(clock.current_date())
