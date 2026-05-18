@@ -1,8 +1,10 @@
 
 from dataclasses import dataclass
 from datetime import date, timedelta
+from random import Random
 
 from lab.kernel.clock import Clock
+from lab.kernel.context import Context
 
 @dataclass
 class RunConfig:
@@ -17,6 +19,11 @@ class Engine:
             config.ticks,
             config.start_date,
             config.delta
+        )
+
+        context = Context(
+            clock=clock,
+            rng=Random(config.seed)
         )
 
         while not clock.is_finished():
