@@ -1,8 +1,10 @@
 from dataclasses import dataclass
 
+type Identifier = str
+
 @dataclass
 class IdGenerator:
-    counters: dict[str, int] = {}
+    counters: dict[Identifier, int] = {}
 
 def next_id(self, name: str) -> str:
     current = self.counters.get(name, 0) + 1
