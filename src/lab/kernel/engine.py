@@ -23,7 +23,7 @@ class Engine:
 
         context = Context(
             clock=clock,
-            rng=Random(config.seed)
+            rng=Random(config.seed),
         )
 
         while not clock.is_finished():
